@@ -1,13 +1,26 @@
-from summoner.summoner import *
+from backend.summoner.summoner import *
+from flask import Flask, jsonify
+from flask_socketio import SocketIO, emit
+
+app = Flask(__name__)
+socketio = SocketIO(app)
 
 
-class RiotProject(object):
-    def __init__(self):
-        print('Create Riot Project...')
+@app.route('/')
+def index():
+    return ''
 
-    # main()
-if __name__ == "__main__":
-    print('running Project...')
-    _id = getSummonerID("hide on bush")
+
+@app.route('/status', defaults={'path': ''}, methods={'GET'})
+@app.route('/status/<path:path>')
+def status(path):
+    summonerName = path
+    print(summonerName)
+    _id = getSummonerID(summonerName)
     _data = getSummonerStatus(_id)
-    print(_data)
+    return _data['summonerName']
+
+
+# main()
+if __name__ == "__main__":
+    socketio.run(app, host='0.0.0.0', port=5000, debug=True)
