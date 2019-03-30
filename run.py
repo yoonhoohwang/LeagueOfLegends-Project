@@ -15,9 +15,9 @@ def index():
 @app.route('/status/<path:path>')
 def status(path):
     summonerName = path
-    print(summonerName)
     _id = getSummonerID(summonerName)
     _data = getSummonerStatus(_id)
+    print(_data)
     return _data['summonerName']
 
 

@@ -1,14 +1,15 @@
 import requests
+from api import *
 
 
 def getSummonerID(summonerName):  # get 소환사 ID
     # 빈 칸을 '%20' 으로 대체
     summonerName.replace(" ", "%20")
-
+    print(summonerName)
     # URL 등록
     URL = "https://kr.api.riotgames.com/lol/summoner/v4/summoners/by-name/"\
-        "{}?api_key=RGAPI-d5b1bdf4-de38-4e9a-8777-8f80ea8273dd"\
-        .format(summonerName)
+        "{}?api_key={}"\
+        .format(summonerName, getApiKey())
 
     # URL 에 소환사 이름 호출
     response = requests.get(URL)
@@ -26,8 +27,7 @@ def getSummonerID(summonerName):  # get 소환사 ID
 def getSummonerStatus(summonerID):  # 소환사 전적확인
     # print(summonerID)
     URL = "https://kr.api.riotgames.com/lol/league/v4/positions/by-summoner/"\
-        "{}?api_key=RGAPI-d5b1bdf4-de38-4e9a-8777-8f80ea8273dd".format(
-            summonerID)
+        "{}?api_key={}".format(summonerID, getApiKey())
 
     # print(URL)
     response = requests.get(URL)

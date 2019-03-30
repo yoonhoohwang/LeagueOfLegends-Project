@@ -9,3 +9,4 @@ public/
 .deploy*/
 src/_drafts
 package-lock.json
+api.py
