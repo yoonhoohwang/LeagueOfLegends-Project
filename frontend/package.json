@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "animate.css": "^3.6.1",
+    "axios": "^0.18.0",
     "chart.js": "^2.7.2",
     "chartist": "^0.11.0",
     "color-thief-browser": "^2.0.2",
