@@ -16,9 +16,9 @@ def index():
 def status(path):
     summonerName = path
     _id = getSummonerID(summonerName)
-    _data = getSummonerStatus(_id)
-    print(_data)
-    return _data['summonerName']
+    data = getSummonerStatus(_id)
+
+    return jsonify(data)
 
 
 # main()
