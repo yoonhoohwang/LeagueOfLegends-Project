@@ -1,4 +1,5 @@
 from backend.summoner.summoner import *
+
 from flask import Flask, jsonify
 from flask_socketio import SocketIO, emit
 
@@ -14,9 +15,10 @@ def index():
 @app.route('/status', defaults={'path': ''}, methods={'GET'})
 @app.route('/status/<path:path>')
 def status(path):
+    ss = SubSummoner()
     summonerName = path
-    _id = getSummonerID(summonerName)
-    data = getSummonerStatus(_id)
+    id = ss.getSummonerID(summonerName)
+    data = ss.getSummonerStatus(id)
 
     return jsonify(data)
 
