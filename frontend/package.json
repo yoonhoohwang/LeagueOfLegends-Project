@@ -34,7 +34,7 @@
     "mavon-editor": "^2.6.9",
     "mdi": "^2.2.43",
     "moment-timezone": "^0.5.17",
-    "papaparse": "^4.5.0",
+    "papaparse": "^5.3.0",
     "perfect-scrollbar": "^1.4.0",
     "plotly.js": "^1.38.2",
     "v-chartist": "^0.1.6",
